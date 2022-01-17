@@ -1,5 +1,6 @@
 package com.example.hotel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -33,8 +34,6 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
 
 
 
-
-
     public roomHomeAdapter( Context context, String[] roomTypes, double[] roomPrices,int[] roomImagesIDs, int[] roomsNumber) {
         this.inflater=LayoutInflater.from(context);
         this.context = context;
@@ -51,8 +50,6 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
         return new ViewHolder(view);
 
     }
-
-
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -100,7 +97,7 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
         public ViewHolder(@NonNull View roomView) {
             super(roomView);
             roomType=roomView.findViewById(R.id.roomType);
-            roomPrice=roomView.findViewById(R.id.price);
+            roomPrice=roomView.findViewById(R.id.price_value);
             roomNum=roomView.findViewById(R.id.room_num_value);
             roomImage=roomView.findViewById(R.id.image);
             viewDetails=roomView.findViewById(R.id.view_Details);

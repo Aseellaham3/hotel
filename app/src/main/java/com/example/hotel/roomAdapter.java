@@ -23,14 +23,16 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
 
     LayoutInflater inflater;
     Context context;
-    private List<room> itemsList;
+    private List<room> roomList;
 
 
-    public roomAdapter( Context context, List<room> itemsList) {
+
+    public roomAdapter( Context context, List<room> roomList) {
         this.inflater=LayoutInflater.from(context);
         this.context = context;
-        this.itemsList=itemsList;
+        this.roomList = roomList;
     }
+
 
     @NonNull
     @Override
@@ -42,26 +44,28 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.room_type.setText(itemsList.get(position).getRoomType());
-        holder.price.setText(String.valueOf(itemsList.get(position).getPrice()));
-        Drawable dr= ContextCompat.getDrawable(context,itemsList.get(position).getImageID());
+        holder.room_type.setText(roomList.get(position).getRoomType());
+        holder.price.setText(String.valueOf(roomList.get(position).getPrice()));
+        Drawable dr= ContextCompat.getDrawable(context,roomList.get(position).getImageID() );
+
+
         holder.image.setImageDrawable(dr);
-        holder.nis_symbol3.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.nis_symbol));
-        holder.nis_symbol4.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.nis_symbol));
-        holder.room_num.setText(String.valueOf(itemsList.get(position).getRoomNum()));
+        holder.nis_symbol.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.nis_symbol));
+        holder.room_num.setText(String.valueOf(roomList.get(position).getRoomNum()));
+        holder.feature.setText(String.valueOf(roomList.get(position).getFeature()));
 
     }
 
     @Override
     public int getItemCount() {
-        return itemsList.size();
+
+        return roomList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView room_type,price,room_num,total_cart_value;
-        ImageView image,nis_symbol3,nis_symbol4;
-        CardView cardView;
-        Button view_details;
+        TextView room_type,price,room_num,feature;
+        ImageView image,nis_symbol;
+        Button bookRoomBT;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -69,11 +73,10 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
             room_type=itemView.findViewById(R.id.roomType);
             price=itemView.findViewById(R.id.price_value);
             room_num=itemView.findViewById(R.id.room_num_value);
+            feature=itemView.findViewById(R.id.featureValue);
             image=itemView.findViewById(R.id.room_image);
-            nis_symbol3=itemView.findViewById(R.id.nis_symbol3);
-            nis_symbol4=itemView.findViewById(R.id.nis_symbol4);
-            cardView = itemView.findViewById(R.id.cardView);
-            view_details=itemView.findViewById(R.id.view_Details);
+            nis_symbol=itemView.findViewById(R.id.nis_symbol3);
+            bookRoomBT=itemView.findViewById(R.id.bookRoom);
 
         }
     }

@@ -130,6 +130,7 @@
                 app:backgroundTint="#23C7DC"
                 app:layout_constraintStart_toStartOf="@+id/roomNum"
                 app:layout_constraintTop_toBottomOf="@+id/room_num_value"
+                android:onClick="viewRoomDetails"
                 />
 
             <ImageView

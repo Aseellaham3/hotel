@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
 
+
     }
     public void viewRoom(View view){
         Intent intent = new Intent(this, roomsPage.class);
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     public void exit(View v) {
         finish();
         System.exit(0);
+    }
+    public void viewRoomDetails(View view){
+        Intent intent = new Intent(this, roomDetails.class);
+        startActivity(intent);
     }
 
 }
