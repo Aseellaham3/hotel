@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
         finish();
         System.exit(0);
     }
-    public void viewRoomDetails(View view){
-        Intent intent = new Intent(this, roomDetails.class);
-        startActivity(intent);
-    }
+
 
 }

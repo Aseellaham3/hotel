@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -46,24 +47,32 @@ public class roomDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_details_layout);
 
+        intent=getIntent();
+
+        roomImage=(int)intent.getExtras().get("roomImagesIDsToItemDetails");
+        price=(double)intent.getExtras().get("roomPricesToItemDetails");
+        roomType=intent.getExtras().getString("roomTypesToItemDetails");
+        roomNum=(int)intent.getExtras().get("roomsNumberToItemDetails");
+       // feature=intent.getExtras().getString("featureToRoomDetails");
+      //  floor=intent.getExtras().getString("floorToRoomDetails");
 
         nis_symbol2=findViewById(R.id.nis_symbol2);
 
         roomImageV=findViewById(R.id.room_image);
-        roomTypeTxtV=findViewById(R.id.roomType);
-        priceTxtV=findViewById(R.id.price_value);
+        roomTypeTxtV=findViewById(R.id.room_Type);
+        priceTxtV=findViewById(R.id.price_preview);
         featureTxtV=findViewById(R.id.featureValue);
-        roomNumTxtV=findViewById(R.id.roomNum);
+        roomNumTxtV=findViewById(R.id.room_num_value);
         bookRoomBT=findViewById(R.id.bookRoom);
         floorTxtV=findViewById(R.id.floor_value);
 
 
 
-       roomImageV.setImageDrawable(ContextCompat.getDrawable(this,roomImage));
+        roomImageV.setImageDrawable(ContextCompat.getDrawable(this,roomImage));
         roomTypeTxtV.setText(roomType);
-        roomNumTxtV.setText(roomNum);
+        roomNumTxtV.setText(String.valueOf(roomNum));
         featureTxtV.setText(feature);
-        floorTxtV.setText(floor);
+        floorTxtV.setText(String.valueOf(floor));
         priceTxtV.setText(String.valueOf(price));
 
         nis_symbol2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.nis_symbol));
@@ -77,7 +86,7 @@ public class roomDetails extends AppCompatActivity {
     }
 
 
-    public void bookOnClick(View view) {
+  /*  public void bookOnClick(View view) {
 
         editor.putInt("roomImageToRoomBooked",roomImage);
         editor.putFloat("PriceToRoomBooked", (float) price);
@@ -108,5 +117,5 @@ public class roomDetails extends AppCompatActivity {
         this.startActivity(intent);
     }
 
-
+*/
 }

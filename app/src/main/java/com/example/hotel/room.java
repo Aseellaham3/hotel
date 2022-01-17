@@ -18,13 +18,7 @@ public class room  {
     public room() {
     }
 
-    public room(String roomType, Double price, String feature, int imageID, String floor) {
-        this.roomType = roomType;
-        this.price = price;
-        this.imageID = imageID;
-        this.floor = floor;
-        this.feature = feature;
-    }
+
 
     public room(String roomType, Double price,  int imageID ,int roomNum){
         this.roomType = roomType;

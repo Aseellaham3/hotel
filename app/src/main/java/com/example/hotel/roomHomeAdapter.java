@@ -61,7 +61,6 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
         holder.roomImage.setImageDrawable(dr);
         holder.nis_symbol.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.nis_symbol));
 
-
         holder.viewDetails.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -77,7 +76,6 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
 
 
 
-
     }
 
 
@@ -90,8 +88,8 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView roomType,roomPrice, roomNum;
         ImageView roomImage,nis_symbol;
-        Button viewDetails;
         CardView cardView;
+        Button viewDetails;
 
 
         public ViewHolder(@NonNull View roomView) {
@@ -100,9 +98,10 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
             roomPrice=roomView.findViewById(R.id.price_value);
             roomNum=roomView.findViewById(R.id.room_num_value);
             roomImage=roomView.findViewById(R.id.image);
-            viewDetails=roomView.findViewById(R.id.view_Details);
             nis_symbol=roomView.findViewById(R.id.nis_symbol3);
             cardView = roomView.findViewById(R.id.cardView);
+            viewDetails = roomView.findViewById(R.id.view_Details);
+
 
         }
     }

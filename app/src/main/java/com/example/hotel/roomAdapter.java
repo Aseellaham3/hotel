@@ -53,6 +53,9 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
         holder.nis_symbol.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.nis_symbol));
         holder.room_num.setText(String.valueOf(roomList.get(position).getRoomNum()));
         holder.feature.setText(String.valueOf(roomList.get(position).getFeature()));
+        holder.floor.setText(String.valueOf(roomList.get(position).getFloor()));
+
+
 
     }
 
@@ -63,7 +66,7 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView room_type,price,room_num,feature;
+        TextView room_type,price,room_num,feature,floor;
         ImageView image,nis_symbol;
         Button bookRoomBT;
 
@@ -77,6 +80,7 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
             image=itemView.findViewById(R.id.room_image);
             nis_symbol=itemView.findViewById(R.id.nis_symbol3);
             bookRoomBT=itemView.findViewById(R.id.bookRoom);
+            floor = itemView.findViewById(R.id.floor_value);
 
         }
     }

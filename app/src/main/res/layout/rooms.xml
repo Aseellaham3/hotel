@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="5dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -17,7 +17,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:cardElevation="10dp"
-        app:contentPadding="10dp"
+        app:contentPadding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,14 +31,9 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginLeft="6dp"
+                android:layout_width="158dp"
+                android:layout_height="159dp"
                 android:adjustViewBounds="true"
-                android:minWidth="100dp"
-                android:minHeight="100dp"
-                android:padding="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -121,17 +116,17 @@
                 android:id="@+id/view_Details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="View Details "
+                android:text="view all room "
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:backgroundTint="#23C7DC"
                 app:layout_constraintStart_toStartOf="@+id/roomNum"
-                app:layout_constraintTop_toBottomOf="@+id/room_num_value"
-                android:onClick="viewRoomDetails"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/room_num_value" />
+
+
 
             <ImageView
                 android:id="@+id/nis_symbol4"
