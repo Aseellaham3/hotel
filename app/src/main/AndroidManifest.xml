@@ -8,9 +8,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Asal Hotel"
+        android:theme="@style/Theme.Hotel"
+
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Hotel"
         android:usesCleartextTraffic="true">
 
     >
@@ -26,6 +27,7 @@
         </activity>
         <activity android:name=".roomsPage" />
         <activity android:name=".roomDetails" />
+        <activity android:name=".sameRoomType" />
     </application>
 
 </manifest>
