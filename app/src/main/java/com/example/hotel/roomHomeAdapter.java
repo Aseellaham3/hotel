@@ -90,6 +90,7 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
         ImageView roomImage,nis_symbol;
         CardView cardView;
         Button viewDetails;
+        Button Bookroom;
 
 
         public ViewHolder(@NonNull View roomView) {
@@ -101,8 +102,11 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
             nis_symbol=roomView.findViewById(R.id.nis_symbol3);
             cardView = roomView.findViewById(R.id.cardView);
             viewDetails = roomView.findViewById(R.id.view_Details);
+         //   Bookroom =roomView.findViewById(R.id.bookRoom);
 
 
         }
     }
+
+
 }

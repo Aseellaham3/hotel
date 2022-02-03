@@ -85,6 +85,11 @@ public class roomDetails extends AppCompatActivity {
         editor=sharedPreferences.edit();
     }
 
+    public void bookOnClick(View view) {
+        Intent n= new Intent( this,customerinfo.class);
+        startActivity(n);
+    }
+
 
   /*  public void bookOnClick(View view) {
 

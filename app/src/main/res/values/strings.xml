@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Hotel</string>
+    <string name="app_name">FitnessApp0</string>
+    <string-array name="Gender">
+        <item>Female</item>
+        <item>Male</item>
+
+    </string-array>
+
+    <string name="hello_world">Hello Square world!</string>
+    <string-array name="type">I
+        <item>Select Room</item>
+        <item>Single Bed Room</item>
+        <item>Double Bed Room</item>
+        <item>Triple Bed Room</item>
+        <item>Quad Bed Room</item>
+    </string-array>
 </resources>
