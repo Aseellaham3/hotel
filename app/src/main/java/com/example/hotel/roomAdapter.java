@@ -1,6 +1,7 @@
 package com.example.hotel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +26,21 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
     Context context;
     private List<room> roomList;
 
+    private String[] roomTypes, features , floorsRoom;
+    private double[] roomPrices;
+    private int[] roomImagesIDs , roomsNumber;
 
+    public roomAdapter( Context context, String[] roomTypes, double[] roomPrices,int[] roomImagesIDs, int[] roomsNumber, String[] features,  String[] floorsRoom) {
+        this.inflater=LayoutInflater.from(context);
+        this.context = context;
+        this.roomTypes = roomTypes;
+        this.roomsNumber = roomsNumber;
+        this.roomPrices = roomPrices;
+        this.roomImagesIDs = roomImagesIDs;
+        this.features = features;
+        this.floorsRoom = floorsRoom;
+
+    }
 
     public roomAdapter( Context context, List<room> roomList) {
         this.inflater=LayoutInflater.from(context);
@@ -34,10 +49,11 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
     }
 
 
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view =inflater.inflate(R.layout.rooms,parent,false);
+        View view =inflater.inflate(R.layout.rooms_type,parent,false);
         return new ViewHolder(view);
     }
 
@@ -54,7 +70,12 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
         holder.room_num.setText(String.valueOf(roomList.get(position).getRoomNum()));
         holder.feature.setText(String.valueOf(roomList.get(position).getFeature()));
         holder.floor.setText(String.valueOf(roomList.get(position).getFloor()));
-
+        holder.bookRoomBT.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+               //to do
+            }
+        });
 
 
     }
@@ -81,6 +102,13 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
             nis_symbol=itemView.findViewById(R.id.nis_symbol3);
             bookRoomBT=itemView.findViewById(R.id.bookRoom);
             floor = itemView.findViewById(R.id.floor_value);
+
+
+            Intent intent = new Intent(context, sameRoomType.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra("featureToRoomDetails", String.valueOf(feature));
+            intent.putExtra("floorToRoomDetails", String.valueOf(feature));
+            context.startActivity(intent);
 
         }
     }

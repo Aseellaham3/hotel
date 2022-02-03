@@ -28,7 +28,7 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
 
     LayoutInflater inflater;
     Context context;
-    private String[] roomTypes;
+    private String[] roomTypes,feature , floor;
     private double[] roomPrices;
     private int[] roomImagesIDs , roomsNumber;
 
@@ -41,6 +41,18 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
         this.roomsNumber = roomsNumber;
         this.roomPrices = roomPrices;
         this.roomImagesIDs = roomImagesIDs;
+    }
+    public roomHomeAdapter( Context context, String[] roomTypes, double[] roomPrices,int[] roomImagesIDs,
+                            int[] roomsNumber, String[] feature, String[] floor) {
+
+        this.inflater=LayoutInflater.from(context);
+        this.context = context;
+        this.roomTypes = roomTypes;
+        this.roomsNumber = roomsNumber;
+        this.roomPrices = roomPrices;
+        this.roomImagesIDs = roomImagesIDs;
+        this.feature = feature;
+        this.floor = floor;
     }
 
     @NonNull
@@ -61,7 +73,7 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
         holder.roomImage.setImageDrawable(dr);
         holder.nis_symbol.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.nis_symbol));
 
-        holder.viewDetails.setOnClickListener(new View.OnClickListener(){
+       /* holder.viewDetails.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(context, roomDetails.class);
@@ -70,6 +82,23 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
                 intent.putExtra("roomPricesToItemDetails",roomPrices[position]);
                 intent.putExtra("roomsNumberToItemDetails",roomsNumber[position]);
                 intent.putExtra("roomImagesIDsToItemDetails",roomImagesIDs[position]);
+
+
+                context.startActivity(intent);
+            }
+        });*/
+
+        holder.viewDetails.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(context, sameRoomType.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("roomTypesToItemDetails", roomTypes[position]);
+                intent.putExtra("roomPricesToItemDetails",roomPrices[position]);
+                intent.putExtra("roomsNumberToItemDetails",roomsNumber[position]);
+                intent.putExtra("roomImagesIDsToItemDetails",roomImagesIDs[position]);
+
+
                 context.startActivity(intent);
             }
         });

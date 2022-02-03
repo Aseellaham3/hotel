@@ -53,8 +53,7 @@ public class roomDetails extends AppCompatActivity {
         price=(double)intent.getExtras().get("roomPricesToItemDetails");
         roomType=intent.getExtras().getString("roomTypesToItemDetails");
         roomNum=(int)intent.getExtras().get("roomsNumberToItemDetails");
-       // feature=intent.getExtras().getString("featureToRoomDetails");
-      //  floor=intent.getExtras().getString("floorToRoomDetails");
+
 
         nis_symbol2=findViewById(R.id.nis_symbol2);
 
@@ -72,7 +71,7 @@ public class roomDetails extends AppCompatActivity {
         roomTypeTxtV.setText(roomType);
         roomNumTxtV.setText(String.valueOf(roomNum));
         featureTxtV.setText(feature);
-        floorTxtV.setText(String.valueOf(floor));
+        floorTxtV.setText(floor);
         priceTxtV.setText(String.valueOf(price));
 
         nis_symbol2.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.nis_symbol));
