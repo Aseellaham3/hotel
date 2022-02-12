@@ -40,9 +40,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="358dp"
-        android:layout_marginEnd="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="386dp"
+        android:layout_marginEnd="20dp"
         android:textAlignment="center"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="40dp" />
@@ -55,6 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="179dp"
         android:layout_marginBottom="95dp"
+        android:background="#23C7DC"
         android:text="CLEAR" />
 
     <Button
@@ -63,8 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="151dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginTop="431dp"
+        android:layout_marginEnd="42dp"
         android:text="All users" />
 
     <Button
@@ -73,8 +74,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="254dp"
+        android:layout_marginTop="424dp"
+        android:layout_marginEnd="260dp"
         android:text="All users" />
 
     <TextView
@@ -84,7 +85,22 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginBottom="246dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginBottom="179dp"
         android:text="SELECT THE ROOM NO TO CLEAR " />
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="289dp"
+        android:layout_height="258dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="77dp"
+
+        android:layout_marginTop="111dp"
+        android:text="TextView"
+        android:textColor="#F2031001"
+        android:textSize="20dp" />
+
+
 </RelativeLayout>

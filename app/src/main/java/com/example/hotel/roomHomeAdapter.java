@@ -91,7 +91,8 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
         holder.viewDetails.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(context, sameRoomType.class);
+                // sameRoomType before
+                Intent intent = new Intent(context, roomDetails.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("roomTypesToItemDetails", roomTypes[position]);
                 intent.putExtra("roomPricesToItemDetails",roomPrices[position]);
