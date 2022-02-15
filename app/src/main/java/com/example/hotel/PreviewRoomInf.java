@@ -10,6 +10,7 @@ public class PreviewRoomInf extends AppCompatActivity {
     String Cardname, Cardnum,phone, Address,Gender;
     String Checkin,Checkout,roomnum,roomtype;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

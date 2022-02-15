@@ -159,7 +159,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="88dp"
         android:background="#23C7DC"
-        android:text="Save" />
+        android:text="Add customer"
+        android:onClick="Addcusomeronclick"/>
 
     <Spinner
         android:id="@+id/spinner"

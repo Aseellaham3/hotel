@@ -73,7 +73,7 @@
 
 
     <EditText
-        android:id="@+id/Checkin"
+        android:id="@+id/Checkout"
         android:layout_width="357dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -83,10 +83,10 @@
         android:clickable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:hint="Checkoin Date" />
+        android:hint="Checkout Date" />
 
     <EditText
-        android:id="@+id/Checkout"
+        android:id="@+id/Checkin"
         android:layout_width="357dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -95,7 +95,7 @@
         android:clickable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:hint="Checkout Date" />
+        android:hint="Checkin Date" />
 
     <Button
         android:id="@+id/preview"
