@@ -58,9 +58,8 @@ public class Roominfo extends AppCompatActivity {
 
         editCheckin = (EditText) findViewById(R.id.Checkin);
         editCheckout = (EditText) findViewById(R.id.Checkout);
-        spinnerType = findViewById(R.id.spinnerType);
+        roomnum = (EditText) findViewById(R.id.roomnum);
         preview = findViewById(R.id.preview);
-        roomnum =findViewById(R.id.roomnum);
 
         preview.setOnClickListener (new View.OnClickListener() {
             @Override
@@ -70,10 +69,10 @@ public class Roominfo extends AppCompatActivity {
                 intent. putExtra( "Cardnum", Cardnum);
                 intent. putExtra( "phone", phone);
                 intent. putExtra( "Address",Address);
-                intent. putExtra( "roomtype",roomtype);
+ //               intent. putExtra( "roomtype",roomtype);
                 intent. putExtra( "Checkin",editCheckin.getText().toString());
                 intent. putExtra( "editCheckout",editCheckout.getText().toString());
-                intent. putExtra( "roomnum",roomnum.getText().toString());
+//                intent. putExtra( "roomnum",roomnum.getText().toString());
                // intent. putExtra( "Gender", Gender);
 
                 String Checkin = editCheckin.getText().toString();
@@ -128,7 +127,7 @@ public class Roominfo extends AppCompatActivity {
     }
 
     private void addRoom_info(String Checkin, String Checkout, String roomnum){
-        String url = "http://192.168.1.10/Hotelapp/Room_info.php";
+        String url = "http://192.168.1.22/Hotelapp/Room_info.php";
         RequestQueue queue = Volley.newRequestQueue(Roominfo.this);
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
