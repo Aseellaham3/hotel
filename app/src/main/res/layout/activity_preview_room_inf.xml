@@ -48,7 +48,7 @@
         tools:layout_editor_absoluteY="40dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -56,17 +56,7 @@
         android:layout_marginStart="179dp"
         android:layout_marginBottom="95dp"
         android:background="#23C7DC"
-        android:text="CLEAR" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="431dp"
-        android:layout_marginEnd="42dp"
-        android:text="All users" />
+        android:text="Save" />
 
     <Button
         android:id="@+id/button"
@@ -98,9 +88,10 @@
         android:layout_marginStart="77dp"
 
         android:layout_marginTop="111dp"
-        android:text="TextView"
         android:textColor="#F2031001"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+
+        android:hint="Press the save button"/>
 
 
 </RelativeLayout>

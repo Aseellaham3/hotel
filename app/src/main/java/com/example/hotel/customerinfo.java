@@ -34,7 +34,7 @@ public class customerinfo extends AppCompatActivity {
 
     EditText editcardname, editcardnum, editphone, editAddress;
     Spinner spinner;
-
+    //String Gender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

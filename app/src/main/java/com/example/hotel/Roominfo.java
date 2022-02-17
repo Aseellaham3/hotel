@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -33,16 +34,24 @@ public class Roominfo extends AppCompatActivity {
 
     Calendar myCalendar;
     EditText editCheckin,editCheckout,roomnum;
-    String Cardname, Cardnum,phone, Address,Gender;
+    private Spinner editroomtype;
+    String Cardname, Cardnum,phone, Address;
+
+
+
 
     Button preview;
-    Spinner spinnerType;
-    String roomtype;
+   // Spinner roomtype;
+    //String roomtype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roominfo);
+
+
+
+
 
        Intent intent=getIntent();
 
@@ -50,7 +59,7 @@ public class Roominfo extends AppCompatActivity {
         Cardnum=intent.getStringExtra( "Cardnum");
         phone=intent.getStringExtra( "phone");
         Address=intent.getStringExtra( "Address");
-        Gender=intent.getStringExtra( "Gender");
+        //roomtype=intent.getStringExtra( "roomtype");
 
 
 
@@ -58,9 +67,12 @@ public class Roominfo extends AppCompatActivity {
 
         editCheckin = (EditText) findViewById(R.id.Checkin);
         editCheckout = (EditText) findViewById(R.id.Checkout);
-        spinnerType = findViewById(R.id.spinnerType);
+       // roomtype = findViewById(R.id.spinnerType);
         preview = findViewById(R.id.preview);
         roomnum =findViewById(R.id.roomnum);
+
+
+
 
         preview.setOnClickListener (new View.OnClickListener() {
             @Override
@@ -70,7 +82,7 @@ public class Roominfo extends AppCompatActivity {
                 intent. putExtra( "Cardnum", Cardnum);
                 intent. putExtra( "phone", phone);
                 intent. putExtra( "Address",Address);
-                intent. putExtra( "roomtype",roomtype);
+               // intent. putExtra( "roomtype",roomtype.setAdapter().toString());
                 intent. putExtra( "Checkin",editCheckin.getText().toString());
                 intent. putExtra( "editCheckout",editCheckout.getText().toString());
                 intent. putExtra( "roomnum",roomnum.getText().toString());
@@ -79,7 +91,9 @@ public class Roominfo extends AppCompatActivity {
                 String Checkin = editCheckin.getText().toString();
                 String Checkout = editCheckout.getText().toString();
                 String roomnummber = roomnum.getText().toString();
+                //String  Roomtype = editroomtype.getSelectedItemPosition();
 
+               // String room_type    =roomtype.toString();
                 addRoom_info(Checkin, Checkout,roomnummber);
 
                 startActivity(intent);
@@ -127,6 +141,7 @@ public class Roominfo extends AppCompatActivity {
         });
     }
 
+
     private void addRoom_info(String Checkin, String Checkout, String roomnum){
         String url = "http://192.168.1.10/Hotelapp/Room_info.php";
         RequestQueue queue = Volley.newRequestQueue(Roominfo.this);
@@ -171,6 +186,9 @@ public class Roominfo extends AppCompatActivity {
                 params.put("Checkin", Checkin);
                 params.put("Checkout", Checkout);
                 params.put("roomnum", roomnum);
+               // params.put("roomtype",Roomtype );
+
+
 
                 // at last we are returning our params.
                 return params;
@@ -186,4 +204,6 @@ public class Roominfo extends AppCompatActivity {
                     SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
                     editCheckin.setText(sdf.format(myCalendar.getTime()));
         }
+
+
         }
