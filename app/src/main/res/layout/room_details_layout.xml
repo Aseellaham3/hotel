@@ -166,20 +166,15 @@
             android:id="@+id/bookRoom"
             android:layout_width="237dp"
             android:layout_height="42dp"
-            android:layout_marginStart="88dp"
-            android:layout_marginEnd="86dp"
-            android:layout_marginBottom="140dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="12dp"
             android:background="#FFFFFF"
             android:onClick="bookOnClick"
             android:text="Book Room"
             android:textColor="#FFFFFF"
             app:backgroundTint="#23C7DC"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/floor_value"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="@+id/floor"
+            app:layout_constraintTop_toBottomOf="@+id/floor_value" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

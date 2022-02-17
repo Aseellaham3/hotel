@@ -10,10 +10,10 @@ public class room  {
     private int roomNum;
     private int imageID;
     public static final room[] rooms={
-            new room("Single room", 400.0," single bed , with AC , Street view , WiFi , with veranda, TV",1, R.drawable.single_room,"7 floor"),
-            new room("Double room",64.96," double bed , with AC , pool view , WiFi , with veranda, TV",2, R.drawable.double_room,"5 floor"),
-            new room("Twin room",28.47,"two bed , with AC , Street view , WiFi , with veranda, TV",3, R.drawable.twin_room,"8 floor"),
-            new room("Suite room",29.99,"room with double bed ,room with  two bed , living room, with AC , pool view , WiFi , with veranda ,TV", 4, R.drawable.suite_room,"10 floor"),
+            new room("Single room", 200.0," single bed , with AC , Street view , WiFi , with veranda, TV",1, R.drawable.single_room,"7 floor"),
+            new room("Double room",300.0," double bed , with AC , pool view , WiFi , with veranda, TV",2, R.drawable.double_room,"5 floor"),
+            new room("Twin room",350.0,"two bed , with AC , Street view , WiFi , with veranda, TV",3, R.drawable.twin_room,"8 floor"),
+            new room("Suite room",500.0,"room with double bed ,room with  two bed , living room, with AC , pool view , WiFi , with veranda ,TV", 4, R.drawable.suite_room,"10 floor"),
     };
     public room() {
     }

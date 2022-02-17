@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".PreviewRoomInf">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="79dp"
         android:background="#23C7DC"
         android:padding="16dp">
 
 
         <TextView
             android:id="@+id/appName"
-            android:layout_width="400dp"
+            android:layout_width="369dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
@@ -32,66 +32,42 @@
     </RelativeLayout>
 
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="372dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="386dp"
-        android:layout_marginEnd="20dp"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="40dp" />
-
     <Button
         android:id="@+id/Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="179dp"
-        android:layout_marginBottom="95dp"
+        android:layout_marginStart="175dp"
+        android:layout_marginBottom="68dp"
         android:background="#23C7DC"
         android:text="Save" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="424dp"
-        android:layout_marginEnd="260dp"
-        android:text="All users" />
-
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="359dp"
-        android:layout_height="47dp"
+        android:id="@+id/textview1"
+        android:layout_width="311dp"
+        android:layout_height="301dp"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="64dp"
+
+        android:layout_marginBottom="125dp"
+        android:hint="Press the save button"
+        android:textColor="#F2031001"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginBottom="179dp"
-        android:text="SELECT THE ROOM NO TO CLEAR " />
+        android:layout_marginStart="0dp"
 
-    <TextView
-        android:id="@+id/textview1"
-        android:layout_width="289dp"
-        android:layout_height="258dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="77dp"
-
-        android:layout_marginTop="111dp"
-        android:textColor="#F2031001"
-        android:textSize="20dp"
-
-        android:hint="Press the save button"/>
+        android:layout_marginBottom="454dp"
+        app:srcCompat="@drawable/imageshhii" />
 
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -26,15 +27,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class customerinfo extends AppCompatActivity {
-    //    public static final String Gender = "Gender";
-//    private Spinner spinner;
-//    private SharedPreferences.Editor editor;
-//    private SharedPreferences pref;
-//    public static final String FLAG = "FLAG";
+    public static final String Gender = "Gender";
+    private Spinner spinner;
+    private SharedPreferences.Editor editor;
+    private SharedPreferences pref;
+    public static final String FLAG = "FLAG";
 
+    private Spinner editGender;
     EditText editcardname, editcardnum, editphone, editAddress;
-    Spinner spinner;
-    //String Gender;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,12 @@ public class customerinfo extends AppCompatActivity {
         editcardnum = findViewById(R.id.editcardnum);
         editphone = findViewById(R.id.editphone);
         editAddress = findViewById(R.id.editAddress);
-        spinner = findViewById(R.id.spinner);
+
+        editGender=findViewById(R.id.gender);
+
+        addToSpinner();
+        setupSharedPref();
+        checkPref();
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -55,13 +61,18 @@ public class customerinfo extends AppCompatActivity {
                 intent.putExtra("Cardnum", editcardnum.getText().toString());
                 intent.putExtra("phone", editphone.getText().toString());
                 intent.putExtra("Address", editAddress.getText().toString());
-                intent.putExtra("Gender", spinner.getAccessibilityClassName().toString());
+                //intent.putExtra("Gender", spinner.getAccessibilityClassName().toString());
 
               //  String Cardname, String Cardnum, String phone,String Address
                 String Cardname = editcardname.getText().toString();
                 String Cardnum = editcardnum.getText().toString();
                 String phone = editphone.getText().toString();
                 String Address = editAddress.getText().toString();
+
+                int userChoice = editGender.getSelectedItemPosition();
+                editor.putInt(Gender,userChoice);
+                editor.putBoolean(FLAG,true);
+                editor.commit();
 
                 addRoom_info(Cardname, Cardnum,phone,Address);
 
@@ -71,6 +82,33 @@ public class customerinfo extends AppCompatActivity {
             }
         });
     }
+
+    private void addToSpinner(){
+        String[] arraySpinner = new String[] {
+                "Male", "Female"
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        editGender.setAdapter(adapter);
+    }
+
+    private void setupSharedPref() {
+        pref= PreferenceManager.getDefaultSharedPreferences(this);
+        editor=pref.edit();
+    }
+
+    private void checkPref() {
+        boolean flag= pref.getBoolean(FLAG,false);
+        if(flag)
+        {
+            int gender=pref.getInt(Gender,-1);
+            editGender.setSelection(gender);
+
+        }
+    }
+
     private void addRoom_info(String Cardname, String Cardnum, String phone,String Address){
         String url = "http://192.168.1.10/Hotelapp/customer_inf.php";
         RequestQueue queue = Volley.newRequestQueue(customerinfo.this);
