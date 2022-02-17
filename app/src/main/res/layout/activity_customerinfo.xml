@@ -43,8 +43,7 @@
         android:textAlignment="center"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="34dp"
-        android:inputType="number"/>
+        tools:layout_editor_absoluteY="34dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -55,7 +54,6 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="188dp"
         android:text="Name on card"
-        android:inputType="number"
         android:textAlignment="center"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="41dp"
@@ -69,7 +67,8 @@
         android:layout_alignParentEnd="true"
         android:ems="10"
         android:hint="Enter credit card number"
-        android:inputType="number"/>
+        android:inputType="textPersonName"
+      />
 
     <EditText
         android:id="@+id/editcardname"
@@ -118,7 +117,7 @@
         android:layout_alignParentEnd="true"
         android:ems="10"
         android:hint="Enter Phone number"
-        android:inputType="number"
+        android:inputType="textPersonName"
         />
 
 
@@ -158,9 +157,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="88dp"
-        android:background="#23C7DC"
-        android:text="Add customer"
-        android:onClick="Addcusomeronclick"/>
+        android:background="@android:color/holo_blue_light"
+        android:text="Save" />
 
     <Spinner
         android:id="@+id/spinner"
