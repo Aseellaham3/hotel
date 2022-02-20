@@ -110,7 +110,7 @@ public class customerinfo extends AppCompatActivity {
     }
 
     private void addRoom_info(String Cardname, String Cardnum, String phone,String Address){
-        String url = "http://192.168.1.10/Hotelapp/customer_inf.php";
+        String url = "http://192.168.1.105/Hotelapp/customer_inf.php";
         RequestQueue queue = Volley.newRequestQueue(customerinfo.this);
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override

@@ -1,3 +1,5 @@
+
+
 package com.example.hotel;
 
 import android.annotation.SuppressLint;
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -21,6 +24,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -31,6 +35,8 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
     private String[] roomTypes,feature , floor;
     private double[] roomPrices;
     private int[] roomImagesIDs , roomsNumber;
+    public ArrayList<room> dataSet;
+    public ArrayList<room> FullList;
 
 
 
@@ -114,6 +120,35 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
     public int getItemCount() {
         return roomsNumber.length;
     }
+    public Filter getFilter() {
+        return Searched_Filter;
+    }
+    private Filter Searched_Filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<room> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(FullList);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (room room : FullList) {
+                    if (room.getRoomType().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(room);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            dataSet.clear();
+            dataSet.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView roomType,roomPrice, roomNum;
@@ -132,7 +167,7 @@ public class roomHomeAdapter extends RecyclerView.Adapter<roomHomeAdapter.ViewHo
             nis_symbol=roomView.findViewById(R.id.nis_symbol3);
             cardView = roomView.findViewById(R.id.cardView);
             viewDetails = roomView.findViewById(R.id.view_Details);
-         //   Bookroom =roomView.findViewById(R.id.bookRoom);
+            //   Bookroom =roomView.findViewById(R.id.bookRoom);
 
 
         }

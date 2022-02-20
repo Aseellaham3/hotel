@@ -11,7 +11,7 @@ public class Success extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.success);
 
 
     }
@@ -24,5 +24,8 @@ public class Success extends AppCompatActivity {
         System.exit(0);
     }
 
-
+    public void forder(View view){
+        Intent intent = new Intent(this, order.class);
+        startActivity(intent);
+    }
 }

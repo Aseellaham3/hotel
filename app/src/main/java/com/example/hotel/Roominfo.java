@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -32,50 +35,50 @@ import java.util.Map;
 
 public class Roominfo extends AppCompatActivity {
 
+    //private lateinit var adapter: ArrayAdapter<*>
+
+    public static final String RoomType = "RoomType";
+    private SharedPreferences.Editor editor;
+    private SharedPreferences pref;
+    public static final String FLAG = "FLAG";
+
+    private Spinner editRoomType;
+
     Calendar myCalendar;
     EditText editCheckin,editCheckout,roomnum;
-    private Spinner editroomtype;
     String Cardname, Cardnum,phone, Address;
 
-
-
-
     Button preview;
-   // Spinner roomtype;
-    //String roomtype;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roominfo);
 
-
-
-
-
-       Intent intent=getIntent();
+        Intent intent=getIntent();
 
         Cardname=intent.getStringExtra( "Cardname");
         Cardnum=intent.getStringExtra( "Cardnum");
         phone=intent.getStringExtra( "phone");
         Address=intent.getStringExtra( "Address");
-        //roomtype=intent.getStringExtra( "roomtype");
+        // RoomType=intent.getStringExtra( "RoomType");
 
+        editRoomType=findViewById(R.id.spinnerType);
+
+
+        addToSpinner();
+        setupSharedPref();
+        checkPref();
 
 
         myCalendar = Calendar.getInstance();
 
         editCheckin = (EditText) findViewById(R.id.Checkin);
         editCheckout = (EditText) findViewById(R.id.Checkout);
-<<<<<<<<< Temporary merge branch 1
-        roomnum = (EditText) findViewById(R.id.roomnum);
-=========
-       // roomtype = findViewById(R.id.spinnerType);
->>>>>>>>> Temporary merge branch 2
+        editRoomType = findViewById(R.id.spinnerType);
         preview = findViewById(R.id.preview);
-
-
-
+        roomnum =findViewById(R.id.roomnum);
 
         preview.setOnClickListener (new View.OnClickListener() {
             @Override
@@ -85,27 +88,26 @@ public class Roominfo extends AppCompatActivity {
                 intent. putExtra( "Cardnum", Cardnum);
                 intent. putExtra( "phone", phone);
                 intent. putExtra( "Address",Address);
-<<<<<<<<< Temporary merge branch 1
- //               intent. putExtra( "roomtype",roomtype);
-=========
-               // intent. putExtra( "roomtype",roomtype.setAdapter().toString());
->>>>>>>>> Temporary merge branch 2
+                intent. putExtra( "roomtype",RoomType);
                 intent. putExtra( "Checkin",editCheckin.getText().toString());
                 intent. putExtra( "editCheckout",editCheckout.getText().toString());
-//                intent. putExtra( "roomnum",roomnum.getText().toString());
-               // intent. putExtra( "Gender", Gender);
+                intent. putExtra( "roomnum",roomnum.getText().toString());
+                // intent. putExtra( "Gender", Gender);
+
+                int userChoice = editRoomType.getSelectedItemPosition();
+                editor.putInt(RoomType,userChoice);
+                editor.putBoolean(FLAG,true);
+                editor.commit();
 
                 String Checkin = editCheckin.getText().toString();
                 String Checkout = editCheckout.getText().toString();
                 String roomnummber = roomnum.getText().toString();
-                //String  Roomtype = editroomtype.getSelectedItemPosition();
 
-               // String room_type    =roomtype.toString();
                 addRoom_info(Checkin, Checkout,roomnummber);
 
                 startActivity(intent);
             }
-            });
+        });
 
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -148,9 +150,34 @@ public class Roominfo extends AppCompatActivity {
         });
     }
 
+    private void addToSpinner(){
+        String[] arraySpinner = new String[] {
+                "Single Bed Room", "Double Bed Room","Triple Bed Room","Triple Bed Room","Quad Bed Room"
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        editRoomType.setAdapter(adapter);
+    }
+
+    private void setupSharedPref() {
+        pref= PreferenceManager.getDefaultSharedPreferences(this);
+        editor=pref.edit();
+    }
+
+    private void checkPref() {
+        boolean flag= pref.getBoolean(FLAG,false);
+        if(flag)
+        {
+            int gender=pref.getInt(RoomType,-1);
+            editRoomType.setSelection(gender);
+
+        }
+    }
 
     private void addRoom_info(String Checkin, String Checkout, String roomnum){
-        String url = "http://192.168.1.22/Hotelapp/Room_info.php";
+        String url = "http://192.168.1.105/Hotelapp/Room_info.php";
         RequestQueue queue = Volley.newRequestQueue(Roominfo.this);
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
@@ -193,9 +220,6 @@ public class Roominfo extends AppCompatActivity {
                 params.put("Checkin", Checkin);
                 params.put("Checkout", Checkout);
                 params.put("roomnum", roomnum);
-               // params.put("roomtype",Roomtype );
-
-
 
                 // at last we are returning our params.
                 return params;
@@ -206,11 +230,9 @@ public class Roominfo extends AppCompatActivity {
         queue.add(request);
     }
 
-                private void updatelabel(Calendar myCalendar, EditText editCheckin) {
-                    String myFormat ="ww/dd/yy"; //In which you need put here
-                    SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-                    editCheckin.setText(sdf.format(myCalendar.getTime()));
-        }
-
-
-        }
+    private void updatelabel(Calendar myCalendar, EditText editCheckin) {
+        String myFormat ="ww/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        editCheckin.setText(sdf.format(myCalendar.getTime()));
+    }
+}

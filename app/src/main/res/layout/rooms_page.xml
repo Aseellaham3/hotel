@@ -15,15 +15,39 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+    <EditText
+        android:id="@+id/searchEdt"
+        android:layout_width="411dp"
+        android:layout_height="63dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="sans-serif-light"
+        android:hint="search by room type"
+        android:textColor="#FF192133"
+        android:textColorHint="#00BCD4"
+        app:layout_constraintTop_toBottomOf="@+id/top_toolbar"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#00BCD4"
+        android:text="search"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/searchEdt"
+        tools:layout_editor_absoluteX="0dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rooms"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="224dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/top_toolbar" />
+        app:layout_constraintTop_toTopOf="@id/searchBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

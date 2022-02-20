@@ -25,7 +25,7 @@
             android:text="Preview RoomInfo"
             android:textColor="@color/white"
 
-            android:textSize="48sp">
+            android:textSize="30sp">
 
         </TextView>
 
@@ -41,6 +41,7 @@
         android:layout_marginStart="175dp"
         android:layout_marginBottom="68dp"
         android:background="#23C7DC"
+        android:onClick="thanks"
         android:text="Save" />
 
     <TextView

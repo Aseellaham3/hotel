@@ -128,7 +128,7 @@ public class PreviewRoomInf extends AppCompatActivity {
 
     private void register_user(String Cardname, String Cardnum, String phone,String Address  ,
                                String Checkin,String editCheckout, String roomnum){
-        String url = "http://192.168.1.10/Hotelapp/registeruser.php";
+        String url = "http://192.168.1.105/Hotelapp/registeruser.php";
         RequestQueue queue = Volley.newRequestQueue(PreviewRoomInf.this);
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
@@ -191,4 +191,10 @@ public class PreviewRoomInf extends AppCompatActivity {
     }
 
 
+    public void thanks(View view) {
+        Intent intent = new Intent(this, thanks.class);
+        startActivity(intent);
+        finish();
+
+    }
 }

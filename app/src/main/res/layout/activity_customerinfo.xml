@@ -24,8 +24,9 @@
             android:fontFamily="cursive"
             android:text="Personal Information"
             android:textColor="@color/white"
+            android:textStyle="bold"
 
-            android:textSize="40sp">
+            android:textSize="30sp">
 
         </TextView>
 
@@ -162,15 +163,13 @@
 
     <Spinner
         android:id="@+id/gender"
-        android:layout_width="106dp"
-        android:layout_height="45dp"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="371dp"
-        android:layout_marginEnd="90dp"
-        android:background="@android:drawable/btn_dropdown"
-      />
+        android:layout_marginEnd="89dp"
+        android:background="@android:drawable/btn_dropdown" />
 
 
 </RelativeLayout>
