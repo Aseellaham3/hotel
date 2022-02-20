@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2021 at 08:57 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: Feb 20, 2022 at 10:54 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,22 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`) VALUES
+(7, 'erty', 'e3e84538a1b02b1cc11bf71fe3169958'),
+(8, 'erty', 'ert'),
+(9, 'iman.issam99@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(10, 'iman.issam99@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(11, 'iman.issam99@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(12, 'iman.issam99@gmail.com', '12345'),
+(13, 'iman.issam99@gmail.com', '678'),
+(14, 'iman.issam99@gmail.com', '1234'),
+(15, 'iman.issam99@gmail.com', '123456'),
+(16, 'iman.issam99@gmail.com', '123');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -51,7 +67,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
